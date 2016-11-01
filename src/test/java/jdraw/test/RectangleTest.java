@@ -2,6 +2,8 @@ package jdraw.test;
 
 import static org.junit.Assert.assertTrue;
 
+import jdraw.figures.Circle;
+import jdraw.figures.Line;
 import org.junit.Before;
 import org.junit.Test;
 

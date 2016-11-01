@@ -9,9 +9,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
+import jdraw.figures.handles.NorthEastHandle;
+import jdraw.figures.handles.NorthWestHandle;
 import jdraw.framework.*;
 
 /**
@@ -83,7 +85,10 @@ public class Rect extends BaseFigure {
 	 */	
 	@Override
 	public List<FigureHandle> getHandles() {
-		return null;
+		List<FigureHandle> handles = new LinkedList<>();
+		handles.add(new NorthWestHandle(this));
+		handles.add(new NorthEastHandle(this));
+		return handles;
 	}
 
 	@Override
