@@ -7,6 +7,10 @@ package jdraw.figures;
 
 import com.sun.javafx.geom.Ellipse2D;
 import com.sun.javafx.geom.Point2D;
+import jdraw.figures.handles.NorthEastHandle;
+import jdraw.figures.handles.NorthWestHandle;
+import jdraw.figures.handles.SouthEastHandle;
+import jdraw.figures.handles.SouthWestHandle;
 import jdraw.framework.Figure;
 import jdraw.framework.FigureEvent;
 import jdraw.framework.FigureHandle;
@@ -14,6 +18,7 @@ import jdraw.framework.FigureListener;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -80,7 +85,12 @@ public class Circle extends BaseFigure {
 	 */	
 	@Override
 	public List<FigureHandle> getHandles() {
-		return null;
+		List<FigureHandle> handles = new LinkedList<>();
+		handles.add(new NorthWestHandle(this));
+		handles.add(new NorthEastHandle(this));
+		handles.add(new SouthWestHandle(this));
+		handles.add(new SouthEastHandle(this));
+		return handles;
 	}
 
 	@Override

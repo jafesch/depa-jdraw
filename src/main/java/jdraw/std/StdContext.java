@@ -24,6 +24,7 @@ import jdraw.framework.DrawTool;
 import jdraw.framework.DrawToolFactory;
 import jdraw.framework.DrawView;
 import jdraw.framework.Figure;
+import jdraw.grid.SimpleGrid;
 
 /**
  * Standard implementation of interface DrawContext.
@@ -163,6 +164,11 @@ public class StdContext extends AbstractContext {
 	@Override
 	protected JMenu createFileMenu() {
 	  JMenu fileMenu = new JMenu("File");
+
+		JMenuItem simpleGrid = new JMenuItem("Simple Grid");
+		simpleGrid.addActionListener(e -> getView().setConstrainer(new SimpleGrid()));
+		fileMenu.add(simpleGrid);
+
 		JMenuItem open = new JMenuItem("Open");
 		fileMenu.add(open);
 		open.setAccelerator(KeyStroke.getKeyStroke("control O"));

@@ -14,6 +14,8 @@ import java.util.List;
 
 import jdraw.figures.handles.NorthEastHandle;
 import jdraw.figures.handles.NorthWestHandle;
+import jdraw.figures.handles.SouthEastHandle;
+import jdraw.figures.handles.SouthWestHandle;
 import jdraw.framework.*;
 
 /**
@@ -88,6 +90,8 @@ public class Rect extends BaseFigure {
 		List<FigureHandle> handles = new LinkedList<>();
 		handles.add(new NorthWestHandle(this));
 		handles.add(new NorthEastHandle(this));
+		handles.add(new SouthWestHandle(this));
+		handles.add(new SouthEastHandle(this));
 		return handles;
 	}
 

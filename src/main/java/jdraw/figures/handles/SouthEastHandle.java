@@ -9,9 +9,9 @@ import java.awt.event.MouseEvent;
 /**
  * Created by Julian on 01-Nov-16.
  */
-public class NorthEastHandle extends BaseFigureHandle {
+public class SouthEastHandle extends BaseFigureHandle {
 
-	public NorthEastHandle(Figure owner) {
+	public SouthEastHandle(Figure owner) {
 		this.owner = owner;
 	}
 
@@ -21,24 +21,24 @@ public class NorthEastHandle extends BaseFigureHandle {
 	@Override
 	public Point getLocation() {
 		Rectangle bounds = owner.getBounds();
-		return new Point(bounds.x + bounds.width, bounds.y);
+		return new Point(bounds.x + bounds.width, bounds.y + bounds.height);
 	}
 
 	@Override
 	public void draw(Graphics g) {
 		Point loc = getLocation();
-		g.setColor(Color.BLUE); g.fillRect(loc.x - 3, loc.y - 3, 6, 6);
+		g.setColor(Color.YELLOW); g.fillRect(loc.x - 3, loc.y - 3, 6, 6);
 		g.setColor(Color.BLACK); g.drawRect(loc.x - 3, loc.y - 3, 6, 6);
 	}
 
 	@Override
 	public Cursor getCursor() {
-		return Cursor.getPredefinedCursor(Cursor.NE_RESIZE_CURSOR);
+		return Cursor.getPredefinedCursor(Cursor.SE_RESIZE_CURSOR);
 	}
 
 	public void startInteraction(int x, int y, MouseEvent e, DrawView v) {
 		Rectangle r = owner.getBounds();
-		corner = new Point(r.x, r.y + r.height);
+		corner = new Point(r.x, r.y);
 	}
 
 	public void stopInteraction(int x, int y, MouseEvent e, DrawView v) {

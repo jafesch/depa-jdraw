@@ -6,6 +6,8 @@
 package jdraw.figures;
 
 import com.sun.javafx.geom.Line2D;
+import jdraw.figures.handles.NorthEastHandle;
+import jdraw.figures.handles.NorthWestHandle;
 import jdraw.framework.Figure;
 import jdraw.framework.FigureEvent;
 import jdraw.framework.FigureHandle;
@@ -13,6 +15,7 @@ import jdraw.framework.FigureListener;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -79,7 +82,10 @@ public class Line extends BaseFigure {
 	 */	
 	@Override
 	public List<FigureHandle> getHandles() {
-		return null;
+		List<FigureHandle> handles = new LinkedList<>();
+		handles.add(new NorthWestHandle(this));
+		handles.add(new NorthEastHandle(this));
+		return handles;
 	}
 
 	@Override
