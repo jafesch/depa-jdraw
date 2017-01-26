@@ -30,5 +30,5 @@ public abstract class BaseFigure implements Figure {
 		}
 	}
 
-	public Figure clone() { return null; }
+	public Figure clone() throws CloneNotSupportedException { throw new CloneNotSupportedException(); }
 }
